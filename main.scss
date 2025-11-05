@@ -1,0 +1,80 @@
+/* ==================
+   FUENTES Y VARIABLES
+   ================== */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap');
+
+// Variables
+$font-titulos: 'Great+Vibes', cursive;
+$font-texto: 'Montserrat', sans-serif;
+$color-vino: #6a003c;
+$color-crema: #fdfaf6;
+$color-blanco: #ffffff;
+
+/* ==================
+   ESTILOS GENERALES
+   ================== */
+body {
+    font-family: $font-texto;
+    font-weight: 300;
+    background-color: $color-crema;
+    color: #333;
+}
+
+/* ==================
+   1. PORTADA (HERO)
+   ================== */
+.hero-section {
+    position: relative; // Necesario para el overlay
+    color: $color-blanco;
+    
+    // Imagen de fondo (aquí pondrás tu imagen)
+    background-image: url('https://images.unsplash.com/photo-1597621210871-33169727a2c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Este es el tinte oscuro
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+    z-index: 1; // Detrás del texto
+}
+
+// Estilos del texto (para que esté SOBRE el overlay)
+.hero-title, .hero-date {
+    position: relative;
+    z-index: 2;
+}
+
+// --- Estilos Mobile-First ---
+.hero-title {
+    font-family: $font-titulos;
+    font-size: 4.5rem;  // Tamaño para móvil
+    font-weight: 400;
+}
+
+.hero-date {
+    font-size: 1.2rem; // Tamaño para móvil
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+// --- Estilos Desktop ---
+// Se aplica solo en pantallas de 768px o más
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 8rem; // Título más grande en desktop
+    }
+    
+    .hero-date {
+        font-size: 1.5rem; // Fecha más grande en desktop
+    }
+}
