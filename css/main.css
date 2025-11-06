@@ -18,7 +18,7 @@ body {
 .hero-section {
   position: relative;
   color: #ffffff;
-  background-image: url("assets/images/portada.jpg");
+  background-image: url("../assets/images/portada.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
