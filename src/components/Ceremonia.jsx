@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Church, Calendar, Clock, MapPin, Navigation } from 'lucide-react';
+import AnimatedDivider from './AnimatedDivider';
 
 const Ceremonia = () => {
   const fadeInUp = {
@@ -40,7 +41,7 @@ const Ceremonia = () => {
   };
 
   return (
-    <section id="ceremonia" className="relative py-24 overflow-hidden bg-transparent">
+    <section id="ceremonia" className="relative py-20 bg-transparent">
       {/* Orbes decorativos flotantes */}
       <motion.div
         className="absolute top-10 left-10 w-64 h-64 rounded-full blur-3xl bg-[#B99855]/40 pointer-events-none z-[1]"
@@ -60,16 +61,19 @@ const Ceremonia = () => {
         className="max-w-4xl mx-auto relative z-10 px-4"
       >
         {/* Tarjeta central con efecto glassmorphism */}
-        <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 border border-white/50">
+        <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 border border-white/50">
           {/* Layout flex vertical centrado */}
           <div className="flex flex-col items-center text-center">
             {/* Icono principal */}
             <Church className="w-12 h-12 text-accent mb-6" />
 
             {/* Título */}
-            <h2 className="font-script text-accent text-4xl md:text-5xl mb-8">
+            <h2 className="font-script text-accent text-4xl md:text-5xl mb-4">
               Ceremonia Religiosa
             </h2>
+
+            {/* Divisor animado */}
+            <AnimatedDivider />
 
             {/* Información */}
             <div className="space-y-6 w-full max-w-md">

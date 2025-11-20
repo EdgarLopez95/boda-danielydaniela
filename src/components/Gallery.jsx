@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Leaf } from 'lucide-react';
+import AnimatedDivider from './AnimatedDivider';
 
 const Gallery = () => {
   const images = [
@@ -63,7 +64,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden bg-transparent">
+    <section className="py-10 relative overflow-hidden bg-transparent">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -71,8 +72,11 @@ const Gallery = () => {
         variants={containerVariants}
         className="max-w-7xl mx-auto relative z-10"
       >
+        {/* Divisor animado */}
+        <AnimatedDivider />
+
         {/* Título decorado con iconos de hojas */}
-        <div className="flex items-center justify-center gap-4 mb-12 relative z-10">
+        <div className="flex items-center justify-center gap-4 mb-4 relative z-10">
           {/* Línea decorativa izquierda */}
           <div className="flex items-center gap-2">
             <div className="h-px w-12 bg-accent/30"></div>

@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero'
 import Timeline from './components/Timeline'
 import Ceremonia from './components/Ceremonia'
@@ -6,8 +7,29 @@ import Gallery from './components/Gallery'
 import FloatingDock from './components/FloatingDock'
 import MusicModal from './components/MusicModal'
 import ClickHearts from './components/ClickHearts'
+import Preloader from './components/Preloader'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Ocultar preloader después de 2.5 segundos o cuando la ventana cargue
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2500);
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
   // Animaciones de flotación para los orbes globales
   const floatingAnimation1 = {
     y: [0, -20, 0],
@@ -43,8 +65,13 @@ function App() {
 
   return (
     <div className="min-h-screen font-body text-text">
-      {/* Modal de Bienvenida y Control de Audio */}
-      <MusicModal />
+      {/* Preloader */}
+      <AnimatePresence>
+        {isLoading && <Preloader />}
+      </AnimatePresence>
+
+      {/* Modal de Bienvenida y Control de Audio (montado debajo del Preloader) */}
+      {!isLoading && <MusicModal />}
 
       {/* Efecto de Corazones al Hacer Clic */}
       <ClickHearts />
@@ -77,7 +104,7 @@ function App() {
       </div>
 
       {/* CONTENIDO */}
-      <main className="relative z-10 flex flex-col">
+      <main className="relative z-10 flex flex-col gap-0">
         <Hero />
         <Timeline />
         <Ceremonia />

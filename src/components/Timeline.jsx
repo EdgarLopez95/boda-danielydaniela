@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Leaf } from 'lucide-react';
+import AnimatedDivider from './AnimatedDivider';
 
 const Timeline = () => {
   const events = [
@@ -94,7 +95,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-20 bg-transparent relative overflow-hidden">
+    <section className="py-10 bg-transparent relative overflow-hidden">
       {/* Orbes decorativos flotantes */}
       <motion.div
         className="absolute top-20 left-10 w-64 h-64 rounded-full blur-3xl bg-[#B99855]/40 pointer-events-none z-[1]"
@@ -123,7 +124,7 @@ const Timeline = () => {
         className="max-w-7xl mx-auto relative z-10"
       >
         {/* Título decorado con iconos de hojas */}
-        <div className="flex items-center justify-center gap-4 mb-8 relative z-10">
+        <div className="flex items-center justify-center gap-4 mb-4 relative z-10">
           {/* Línea decorativa izquierda */}
           <div className="flex items-center gap-2">
             <div className="h-px w-12 bg-accent/30"></div>
@@ -143,6 +144,9 @@ const Timeline = () => {
             <div className="h-px w-12 bg-accent/30"></div>
           </div>
         </div>
+
+        {/* Divisor animado */}
+        <AnimatedDivider />
 
         {/* Carrusel horizontal con scroll snap */}
         <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6 gap-6 pb-10">
