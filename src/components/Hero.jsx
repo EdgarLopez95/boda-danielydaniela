@@ -42,7 +42,7 @@ const Hero = () => {
           srcSet="/images/hero-desktop.jpeg" 
         />
         <img 
-          src="/images/hero-mobile.jpeg" 
+          src="/images/hero-mobile.jpg" 
           alt="Hero boda Daniela y Daniel"
           className="absolute inset-0 w-full h-full object-cover"
         />

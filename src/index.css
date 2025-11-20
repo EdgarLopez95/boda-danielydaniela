@@ -24,6 +24,15 @@ body {
   .animate-fade-in-delay-3 {
     animation: fadeIn 1s ease-in 0.9s both;
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes fadeIn {
