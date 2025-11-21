@@ -104,12 +104,15 @@ const Timeline = () => {
               <div className="h-px w-12 bg-accent/30"></div>
             </div>
           </div>
+          <p className="text-accent/60 text-xs uppercase tracking-widest mb-4 text-center animate-pulse">
+            Desliza para ver la historia ↔
+          </p>
         </FadeIn>
 
         <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6 gap-6 pb-10">
           {events.map((event, index) => (
             <FadeIn key={event.id} delay={index * 0.2}>
-              <div className="min-w-[85vw] md:min-w-[400px] h-[500px] relative rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 snap-center">
+              <div className="min-w-[75vw] md:min-w-[400px] h-[500px] relative rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 snap-center">
               <img
                 src={event.image}
                 alt={event.title}

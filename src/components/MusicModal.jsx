@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Music, VolumeX } from 'lucide-react';
+import { Music, VolumeX, Volume2 } from 'lucide-react';
 
 const MusicModal = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -91,6 +91,12 @@ const MusicModal = () => {
               <h1 className="font-script text-accent text-5xl md:text-7xl lg:text-8xl mb-12 drop-shadow-lg">
                 Daniela & Daniel
               </h1>
+              <div className="flex flex-col items-center gap-2 mb-6">
+                <Volume2 className="w-5 h-5 text-white animate-pulse" />
+                <p className="text-white text-xs md:text-sm text-center">
+                  Sube el volumen para una mejor experiencia
+                </p>
+              </div>
               <button
                 onClick={handleEnter}
                 className="px-8 py-3 border border-white/80 text-white rounded-full font-semibold hover:bg-accent hover:border-accent hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/10"
