@@ -7,7 +7,6 @@ const MusicModal = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
 
-  // Crear el elemento de audio solo una vez
   useEffect(() => {
     const audioElement = document.createElement('audio');
     audioElement.id = 'wedding-audio';
@@ -18,7 +17,6 @@ const MusicModal = () => {
     setAudio(audioElement);
 
     return () => {
-      // Limpiar al desmontar
       if (audioElement && document.body.contains(audioElement)) {
         audioElement.pause();
         document.body.removeChild(audioElement);
@@ -26,7 +24,6 @@ const MusicModal = () => {
     };
   }, []);
 
-  // Controlar overflow del body cuando el modal está abierto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,7 +43,6 @@ const MusicModal = () => {
         setIsPlaying(true);
       } catch (error) {
         console.error('Error al reproducir audio:', error);
-        // Si falla la reproducción automática, continuar sin audio
       }
     }
     setIsOpen(false);
@@ -67,7 +63,6 @@ const MusicModal = () => {
 
   return (
     <>
-      {/* Modal de Bienvenida */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -76,7 +71,6 @@ const MusicModal = () => {
             transition={{ duration: 0.8, ease: 'easeInOut' }}
             className="fixed inset-0 z-[100] flex items-center justify-center"
           >
-            {/* Fondo con imagen desenfocada */}
             <div className="absolute inset-0">
               <img
                 src="/images/hero-mobile.jpg"
@@ -85,8 +79,6 @@ const MusicModal = () => {
               />
               <div className="absolute inset-0 bg-black/60"></div>
             </div>
-
-            {/* Contenido Centrado */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -110,7 +102,6 @@ const MusicModal = () => {
         )}
       </AnimatePresence>
 
-      {/* Control de Música Flotante */}
       {!isOpen && (
         <motion.button
           initial={{ opacity: 0, scale: 0 }}

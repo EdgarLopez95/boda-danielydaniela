@@ -9,7 +9,6 @@ const Preloader = () => {
       transition={{ duration: 0.5 }}
       className="fixed inset-0 z-[200] bg-[#FDFBF7] flex flex-col items-center justify-center"
     >
-      {/* Corazón animado */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -27,8 +26,6 @@ const Preloader = () => {
           className="text-[#B99855] fill-[#B99855]" 
         />
       </motion.div>
-
-      {/* Texto de carga */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

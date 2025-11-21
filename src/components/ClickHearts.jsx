@@ -3,9 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ClickHearts = () => {
   const [hearts, setHearts] = useState([]);
-
   const heartEmojis = ['🤍', '🕊️', '✨', '💕', '💖'];
-  const colors = ['#B99855', '#FFFFFF', '#FDFBF7'];
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -14,13 +12,12 @@ const ClickHearts = () => {
         x: e.clientX,
         y: e.clientY,
         emoji: heartEmojis[Math.floor(Math.random() * heartEmojis.length)],
-        rotation: Math.random() * 360 - 180, // Rotación aleatoria entre -180 y 180
-        delay: Math.random() * 0.2, // Delay aleatorio para variación
+        rotation: Math.random() * 360 - 180,
+        delay: Math.random() * 0.2,
       };
 
       setHearts((prev) => [...prev, newHeart]);
 
-      // Remover el corazón después de la animación
       setTimeout(() => {
         setHearts((prev) => prev.filter((heart) => heart.id !== newHeart.id));
       }, 2000);

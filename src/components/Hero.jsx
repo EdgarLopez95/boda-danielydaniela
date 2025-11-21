@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -35,7 +36,6 @@ const Hero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Imagen responsive con picture */}
       <picture className="absolute inset-0 w-full h-full">
         <source 
           media="(min-width: 768px)" 
@@ -48,29 +48,39 @@ const Hero = () => {
         />
       </picture>
 
-      {/* Overlay cinematográfico con degradado vertical */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
-      {/* Contenido centrado con desplazamiento hacia abajo */}
       <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-4 pb-16 md:pb-24 lg:pb-32">
-        {/* Texto superior */}
-        <p className="text-white text-sm md:text-base tracking-[0.3em] uppercase mb-4 drop-shadow-md animate-fade-in">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0 }}
+          className="text-white text-sm md:text-base tracking-[0.3em] uppercase mb-4 drop-shadow-md"
+        >
           NOS CASAMOS
-        </p>
-
-        {/* Nombres */}
-        <h1 className="font-script text-accent text-6xl md:text-8xl mb-6 drop-shadow-lg animate-fade-in-delay">
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="font-script text-accent text-6xl md:text-8xl mb-6 drop-shadow-lg"
+        >
           Daniela & Daniel
-        </h1>
-
-        {/* Frase */}
-        <p className="text-white/90 text-base md:text-lg lg:text-xl italic mb-12 max-w-2xl drop-shadow-md animate-fade-in-delay-2">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-white/90 text-base md:text-lg lg:text-xl italic mb-12 max-w-2xl drop-shadow-md"
+        >
           Hoy comienza una historia escrita por Dios...
-        </p>
-
-        {/* Cuenta Regresiva con efecto Glassmorphism */}
-        <div className="flex gap-3 md:gap-6 animate-fade-in-delay-3">
-          {/* Días */}
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex gap-3 md:gap-6"
+        >
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-3 md:p-6 min-w-[80px] md:min-w-[120px] flex flex-col items-center justify-center shadow-lg">
             <span className="font-script text-accent text-4xl md:text-6xl font-bold">
               {timeLeft.days.toString().padStart(2, '0')}
@@ -79,8 +89,6 @@ const Hero = () => {
               Días
             </span>
           </div>
-
-          {/* Horas */}
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-3 md:p-6 min-w-[80px] md:min-w-[120px] flex flex-col items-center justify-center shadow-lg">
             <span className="font-script text-accent text-4xl md:text-6xl font-bold">
               {timeLeft.hours.toString().padStart(2, '0')}
@@ -89,8 +97,6 @@ const Hero = () => {
               Horas
             </span>
           </div>
-
-          {/* Minutos */}
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-3 md:p-6 min-w-[80px] md:min-w-[120px] flex flex-col items-center justify-center shadow-lg">
             <span className="font-script text-accent text-4xl md:text-6xl font-bold">
               {timeLeft.minutes.toString().padStart(2, '0')}
@@ -99,7 +105,7 @@ const Hero = () => {
               Minutos
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
