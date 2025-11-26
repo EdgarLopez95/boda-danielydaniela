@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -107,6 +108,32 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Indicador de scroll fijo en la parte superior - Super explícito */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-30"
+      >
+        <motion.div
+          animate={{
+            y: [0, 8, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="backdrop-blur-md bg-black/50 border-2 border-[#B99855] rounded-full px-4 py-2 md:px-5 md:py-2.5 shadow-2xl flex flex-row items-center gap-3"
+        >
+          <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-[#B99855] drop-shadow-lg flex-shrink-0" />
+          <p className="text-white text-xs md:text-sm font-bold drop-shadow-lg animate-pulse uppercase tracking-wide whitespace-nowrap">
+            Desliza hacia abajo
+          </p>
+
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
