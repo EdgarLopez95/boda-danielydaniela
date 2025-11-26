@@ -89,7 +89,7 @@ const Timeline = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <FadeIn>
-          <div className="flex items-center justify-center gap-4 mb-4 relative z-10">
+          <div className="flex items-center justify-center gap-4 mb-8 relative z-10">
             <div className="flex items-center gap-2">
               <div className="h-px w-12 bg-accent/30"></div>
               <Leaf className="w-5 h-5 text-accent rotate-12" />
@@ -104,14 +104,11 @@ const Timeline = () => {
               <div className="h-px w-12 bg-accent/30"></div>
             </div>
           </div>
-          <p className="text-[#B99855] font-medium text-xs uppercase tracking-widest mb-4 text-center animate-pulse">
-            Desliza para ver la historia ↔
-          </p>
         </FadeIn>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6 gap-6 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 pb-10">
           {events.map((event) => (
-            <div key={event.id} className="min-w-[75vw] md:min-w-[400px] h-[500px] relative rounded-2xl overflow-hidden shadow-2xl shadow-accent/10 snap-center">
+            <div key={event.id} className="w-full h-[500px] relative rounded-2xl overflow-hidden shadow-2xl shadow-accent/10">
               <img
                 src={event.image}
                 alt={event.title}
